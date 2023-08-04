@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+
+  vue-app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: vue-app
+    restart: unless-stopped
+    # env_file: .env
+    ports:
+      - 8080:80
+    networks:
+      - vue
+
+networks:
+  vue:
+    driver: bridge
